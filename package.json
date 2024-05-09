@@ -1,49 +1,29 @@
 {
-  "name": "verification_code",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.15.15",
-    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "crypto-browserify": "^3.12.0",
-    "nodemailer": "^6.9.13",
-    "os-browserify": "^0.3.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-toastify": "^10.0.5",
-    "stream-browserify": "^3.0.0",
-    "styled-components": "^6.1.8",
-    "url": "^0.11.3",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "DELETE_USER_NODE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/app"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "author": "Mr-AsimGhaffar <asim.ghaffar71@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "firebase": "^10.11.0",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^4.9.0",
+    "firebase-tools": "^13.7.4",
+    "http-errors": "^2.0.0",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.0",
+    "pino": "^8.20.0",
+    "pino-http": "^9.0.0",
+    "pino-pretty": "^11.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "keywords": []
 }
