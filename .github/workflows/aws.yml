@@ -36,14 +36,21 @@ jobs:
         source: "."
         target: "/home/ubuntu/test"
 
-    - name: Restart the application using PM2
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22
-        script: |
-          cd /home/ubuntu/test
-          pnpm install
-          pm2 restart all
+    # - name: Restart the application using PM2
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     port: 22
+        # script: |
+        #   cd /home/ubuntu/test
+        #   pnpm install
+        #   pm2 restart all
+    - name: Install dependencies
+      run: |
+        cd /home/ubuntu/test  # Adjust the path to where your package.json is located
+        pnpm install
+  
+    - name: Restart the application
+      run: pm2 restart all
