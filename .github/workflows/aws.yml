@@ -10,15 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/setup-node@v3
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14'  # Set this to your Node.js version
+        node-version: '18'  # Set this to your Node.js version
 
     - name: Install dependencies
       run: npm install
+    - name: Install PM2 pnpm
+      run: npm install pm2 pnpm -g
 
     - name: Copy files to the server
       uses: appleboy/scp-action@master
