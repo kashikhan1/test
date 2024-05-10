@@ -19,17 +19,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-  
-    - name: List directory contents
-      run: |
-        cd /home/ubuntu/test
-        ls -la
-    
-    - name: Install pnpm
-      run: npm install -g pnpm
-
-    - name: Install PM2
-      run: npm install -g pm2
 
     - name: Copy files to the server
       uses: appleboy/scp-action@master
