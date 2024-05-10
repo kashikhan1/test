@@ -1,39 +1,36 @@
-name: Deploy to EC2
+name: Deploy Node.js App to EC2
 
 on:
   push:
     branches:
-      - main  # Set this to the branch you want to deploy from
+      - main  # Set this to the branch from which you want to deploy
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '18'  # Specify your Node.js version
+        node-version: '14'  # Set this to your Node.js version
 
-    - name: Install Dependencies
+    - name: Install dependencies
       run: npm install
 
-    # - name: Build
-    #   run: npm run build  # Your build command
-
-    - name: Copy files to the EC2 instance
+    - name: Copy files to the server
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        source: "."  # Adjust this based on what needs to be copied
-        target: "/test"
+        source: "."
+        target: "/home/ubuntu/test"
 
-    - name: Restart the application
+    - name: Restart the application using PM2
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -41,6 +38,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /test
+          cd /home/ubuntu/test
           pnpm install
-          pm2 restart all  # or any other command to start your application
+          pm2 restart all  # Ensure this is set up correctly
