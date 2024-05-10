@@ -30,7 +30,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        source: "/*"  # Adjust this based on what needs to be copied
+        source: "."  # Adjust this based on what needs to be copied
         target: "/test"
 
     - name: Restart the application
