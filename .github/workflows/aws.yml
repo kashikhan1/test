@@ -22,7 +22,7 @@ jobs:
   
     - name: List directory contents
       run: |
-        cd /path/to/your/project
+        cd /home/ubuntu/test
         ls -la
     
     - name: Install pnpm
@@ -49,7 +49,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-            cd "/home/ubuntu/test"
+            cd /home/ubuntu/test
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh    
             PATH="/usr/local/go/bin/:$PATH"
