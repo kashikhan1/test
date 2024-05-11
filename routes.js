@@ -30,7 +30,7 @@ const db = getFirestore(app);
 
 module.exports = function (app, opts) {
   app.get("/ping", (req,res) => {
-    res.send("pong");
+    res.send("pong"); 
   });
 
   app.post("/", async (req, res) => {
