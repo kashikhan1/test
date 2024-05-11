@@ -29,6 +29,10 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 module.exports = function (app, opts) {
+  app.get("/ping", (req,res) => {
+    res.send("pong");
+  });
+
   app.post("/", async (req, res) => {
     const { email } = req.body;
     const generatedCode = Math.floor(100000 + Math.random() * 900000);

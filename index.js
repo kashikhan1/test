@@ -37,7 +37,7 @@ module.exports = function main(options, cb) {
   app.engine("html", ejs.renderFile);
   app.set("views", path.join(__dirname, "views"));
   app.set("view engine", "html");
-  app.use(cors({ origin: "*" }));
+  app.use(cors());
   app.use(pinoHttp({ logger }));
   app.use(express.json());
   require("./routes")(app, opts);
