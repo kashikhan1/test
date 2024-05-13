@@ -62,6 +62,13 @@ module.exports = function (app, opts) {
               userRecord.toJSON()
             )}`
           );
+        }).catch((error) => {
+          if(error && error.message) {
+            res.status(500).json({ error: error.message });
+          } else {
+            res.status(500).json({ error: error });
+          }
+          return 
         });
 
       res.json({ success: true });
